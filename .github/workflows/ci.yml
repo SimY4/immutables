@@ -7,13 +7,14 @@ on:
   push:
     branches:
       - master
+      - topic/*
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [ '8', '11', '15' ]
+        java: [ '8', '11', '16', '17-ea' ]
         compiler: [ 'javac', 'ecj' ]
     steps:
     - uses: actions/checkout@v2
