@@ -84,4 +84,29 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <configuration combine.children="append">
+              <compilerArgs>
+                <compilerArg>-proc:none</compilerArg>
+              </compilerArgs>
+            </configuration>
+          </execution>
+          <execution>
+            <id>compile-project</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
