@@ -43,6 +43,7 @@ interface OverrideColor {
 
   int black();
 
+  @SuppressWarnings("InfiniteRecursion")
   @Value.Parameter(false)
   @Value.Default
   default int gray() {
