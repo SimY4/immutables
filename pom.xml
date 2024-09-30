@@ -390,6 +390,33 @@
         <eclipse-compiler.version>3.33.0</eclipse-compiler.version>
       </properties>
     </profile>
+    <profile>
+      <id>jdk23</id>
+      <activation>
+        <jdk>[23,)</jdk>
+      </activation>
+
+      <properties>
+        <maven.compiler.release>8</maven.compiler.release>
+        <eclipse-compiler.version>3.39.0</eclipse-compiler.version>
+        <errorprone.version>2.39.0</errorprone.version>
+      </properties>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <fork>true</fork>
+              <compilerArgs combine.children="append">
+                <arg>-proc:full</arg>
+              </compilerArgs>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 
 </project>

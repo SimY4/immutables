@@ -19,5 +19,6 @@ import org.immutables.value.Value;
 
 @Value.Immutable
 public interface HasUmlauts {
+  @SuppressWarnings("UnicodeInCode")
   int getZahlungsempfänger();
 }

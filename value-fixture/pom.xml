@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
    Copyright 2014-2018 Immutables Authors and Contributors
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -341,6 +341,7 @@
         <maven.compiler.compilerVersion>17</maven.compiler.compilerVersion>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>17</maven.compiler.release>
       </properties>
       <build>
         <plugins>
@@ -376,6 +377,26 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>jdk23</id>
+      <activation>
+        <jdk>[23,)</jdk>
+      </activation>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <compilerArgs combine.children="append">
+                <arg>-Xep:NoCanIgnoreReturnValueOnClasses:WARN</arg>
+              </compilerArgs>
+            </configuration>
           </plugin>
         </plugins>
       </build>
